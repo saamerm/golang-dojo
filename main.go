@@ -1,6 +1,7 @@
 package main
 
 import (
+		"golang-dojo/internal/car"
 		"fmt" 
 		"os" 
 		"bufio" 
@@ -9,6 +10,8 @@ import (
 
 func main() {
 	GetPersonInfo()
+	r1 := car.NewCar("Lexus", "ES300", 1997, "Silver")
+	(*r1).Print()
 }
 
 func  GetPersonInfo() map[string]string{
