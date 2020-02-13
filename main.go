@@ -1,12 +1,11 @@
 package main
 
 import (
-	"fmt" 
 	"golang-dojo/internal/person"
 )
 
 func main() {
-	m := make(map[string]string)
-	m = person.GetPersonInfo()
-	fmt.Println(m["firstName"] + " " + m["lastName"] + " " + m["dob"] + " " + m["nationality"] + " " + m["email"])
+	r1 := person.NewPerson("Galina", "Galina", 21, "1997", "Bulgaria", "galina@g.com")
+	(*r1).Print()
 }
+

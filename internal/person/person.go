@@ -7,6 +7,30 @@ import (
 	"strings"
 )
 
+type Person struct {
+    firstName string
+    lastName string
+	age  int
+	dob string
+	nationality string
+    email string
+}
+
+func NewPerson(firstName string, lastName string, age int, dob string, nationality string, email string) *Person{
+	// The line below also works as a substitute for all that's done in this function
+	// p := Person{firstName, lastName, age, dob, nationality, email}
+	// Or you can just do 
+	// return &Person{firstName, lastName, age, dob, nationality, email}
+	p := Person{firstName: firstName}
+	p.lastName = lastName
+	p.age = age
+	p.dob = dob
+	p.nationality = nationality
+	p.email = email
+	return &p
+}
+
+
 func  GetPersonInfo() map[string]string{
 	m := make(map[string]string)
 
@@ -27,4 +51,10 @@ func  GetPersonInfo() map[string]string{
 	m["email"], _ = reader.ReadString('\n')
 	m["email"] = strings.Replace(m["email"], "\n", "", -1)
 	return m
+}
+
+func (p Person) Print(){
+	fmt.Println(p.firstName + " " + p.lastName + " ")
+	fmt.Println(p.age)
+	fmt.Println(p.dob + " " + p.nationality + " " + p.email)
 }
